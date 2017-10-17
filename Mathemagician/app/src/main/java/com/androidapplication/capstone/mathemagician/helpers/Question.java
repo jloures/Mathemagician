@@ -44,6 +44,6 @@ public class Question {
 
     @Override
     public String toString() {
-        return this.num_1 + " " + OperatorManager.getOperatorAsString(this.operator) + " " + this.num_2;
+        return (int)this.num_1 + " " + OperatorManager.getOperatorAsString(this.operator) + " " + (int)this.num_2;
     }
 }
