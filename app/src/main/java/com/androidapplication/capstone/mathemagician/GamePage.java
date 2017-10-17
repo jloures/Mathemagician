@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidapplication.capstone.mathemagician.helpers.Operator;
+import com.androidapplication.capstone.mathemagician.helpers.OperatorManager;
 import com.androidapplication.capstone.mathemagician.helpers.Question;
 import com.androidapplication.capstone.mathemagician.helpers.SessionResult;
 
@@ -48,7 +49,7 @@ public class GamePage extends AppCompatActivity {
         for(int i = 0; i < numQuestions; i++) {
             questions.add(new Question(
                     //change here to make the type of operation constant
-                    Operator.ADDITION
+                    OperatorManager.getRandomOperator()
             ));
         }
 
