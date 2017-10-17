@@ -14,6 +14,6 @@ public class SessionResult {
 
     @Override
     public String toString() {
-        return "Mistakes: " + this.numMistakes + "\n Time: " + this.duration + " seconds.";
+        return "Mistakes: " + this.numMistakes + "\nTime: " + this.duration + " seconds.";
     }
 }

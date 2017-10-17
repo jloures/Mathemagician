@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,27 +29,26 @@ public class HighScoresPage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String results = getIntent().getStringExtra("results");
-//        String[] allResults = {results};
-//
-//        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-//                R.layout., allResults);
-//
-//        ListView listView = (ListView) findViewById(R.id.high_scores_list_view);
-//        listView.setAdapter(adapter);
-
-        Handler mHandler = new Handler();
-        mHandler.postDelayed(new Runnable() {
-
+        final Button goToMainPageButton = (Button) findViewById(R.id.main_page_button);
+        goToMainPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View view) {
                 goToMainPage();
             }
+        });
 
-        }, 3000L);
+        String results = getIntent().getStringExtra("results");
+        String[] allResults = {results};
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this,
+                R.layout.high_score_list_layout, R.id.result_text_view, allResults);
+
+        ListView listView = (ListView) findViewById(R.id.high_scores_list_view);
+        listView.setAdapter(adapter);
+
     }
 
-    private void goToMainPage() {
+    public void goToMainPage() {
         Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
     }

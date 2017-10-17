@@ -21,7 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_high_score_page"
-        android:id="@+id/high_scores_list_view" />
+    <include layout="@layout/content_high_score_page" />
 
 </android.support.design.widget.CoordinatorLayout>

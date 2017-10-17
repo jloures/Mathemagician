@@ -29,7 +29,8 @@
         android:id="@+id/high_score_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="48dp"
+        android:onClick="goToHighScorePage"/>
 
     <TextView
         android:layout_width="wrap_content"

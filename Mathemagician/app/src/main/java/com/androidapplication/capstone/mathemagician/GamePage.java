@@ -22,8 +22,8 @@ public class GamePage extends AppCompatActivity {
     private int currentQuestionIndex = 0;
     private int numMistakes = 0;
     private int numQuestions;
-    private float startTime;
-    private float endTime;
+    private long startTime;
+    private long endTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class GamePage extends AppCompatActivity {
 
         //generate problem set
         //TODO change the number once you are able to get user input
-        this.numQuestions = 10;
+        this.numQuestions = 50;
         this.questions = this.generateQuestionSets(this.numQuestions);
         this.startTime = System.currentTimeMillis();
         this.displayQuestion(this.currentQuestionIndex);
