@@ -2,6 +2,7 @@ package com.androidapplication.capstone.mathemagician;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -100,6 +101,10 @@ public class GamePage extends AppCompatActivity {
         //save score before and record the time
         this.endTime = System.currentTimeMillis();
         int duration = (int) (this.endTime - this.startTime) / 1000;
+
+        SharedPreferences.Editor editor = getSharedPreferences("high_scores", MODE_PRIVATE).edit();
+        //editor.putString();
+        editor.apply();
 
         Intent highScorePageIntent = new Intent(this, HighScoresPage.class);
         highScorePageIntent.putExtra("results", new SessionResult(duration, this.numMistakes).toString());

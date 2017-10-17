@@ -1,6 +1,7 @@
 package com.androidapplication.capstone.mathemagician;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +30,14 @@ public class HighScoresPage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        SharedPreferences prefs = getSharedPreferences("high_scores", MODE_PRIVATE);
+        String allResultsRecorded = null;
+        if (allResultsRecorded == null) {
+            //this should throw an exception
+            return;
+        }
+
+
         final Button goToMainPageButton = (Button) findViewById(R.id.main_page_button);
         goToMainPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +46,7 @@ public class HighScoresPage extends AppCompatActivity {
             }
         });
 
-        String results = getIntent().getStringExtra("results");
-        String[] allResults = {results};
+        String[] allResults = {allResultsRecorded};
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.high_score_list_layout, R.id.result_text_view, allResults);
