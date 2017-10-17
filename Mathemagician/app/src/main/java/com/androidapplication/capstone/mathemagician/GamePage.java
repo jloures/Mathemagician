@@ -1,6 +1,7 @@
 package com.androidapplication.capstone.mathemagician;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.androidapplication.capstone.mathemagician.helpers.Operator;
 import com.androidapplication.capstone.mathemagician.helpers.OperatorManager;
 import com.androidapplication.capstone.mathemagician.helpers.Question;
+import com.androidapplication.capstone.mathemagician.helpers.SessionResult;
 
 import org.w3c.dom.Text;
 
@@ -102,7 +104,11 @@ public class GamePage extends AppCompatActivity {
     private void goToHighScorePage() {
         //save score before and record the time
         this.endTime = System.currentTimeMillis();
-        int duration = (int) (this.endTime - this.startTime)/1000;
+        int duration = (int) (this.endTime - this.startTime) / 1000;
+
+        Intent highScorePageIntent = new Intent(this, HighScorePage.class);
+        highScorePageIntent.putExtra("results", new SessionResult(duration, this.numMistakes).toString());
+        startActivity(highScorePageIntent);
     }
 
     private void displayNumMistakes(int numMistakes) {

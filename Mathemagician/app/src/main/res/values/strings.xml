@@ -2,4 +2,5 @@
     <string name="app_name">Mathemagician</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_game_page">GamePage</string>
+    <string name="title_activity_high_score_page">HighScorePage</string>
 </resources>
