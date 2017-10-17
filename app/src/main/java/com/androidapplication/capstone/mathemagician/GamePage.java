@@ -35,7 +35,7 @@ public class GamePage extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //generate problem set
-        //TODO change the number once you are able to get user input
+        //TODO change the numQuestions once you are able to get user input
         this.numQuestions = 50;
         this.questions = this.generateQuestionSets(this.numQuestions);
         this.startTime = System.currentTimeMillis();
