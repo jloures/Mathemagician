@@ -6,15 +6,17 @@ import java.util.Random;
  * Created by joaoloures on 2017-10-16.
  */
 
-public class Set {
+public class Question {
 
     private float num_1;
     private float num_2;
+    private Operator operator;
     private float result;
 
-    public Set(Operation o) {
+    public Question(Operator o) {
         Random randomGenerator = new Random();
 
+        this.operator = o;
         this.num_1 = (float) randomGenerator.nextInt(100);
         this.num_2 = (float) randomGenerator.nextInt(100);
 
@@ -25,7 +27,7 @@ public class Set {
         return guess == this.result;
     }
 
-    private float getResult(Operation o, float a, float b) {
+    private float getResult(Operator o, float a, float b) {
         switch(o) {
             case ADDITION:
                 return a + b;
@@ -40,4 +42,8 @@ public class Set {
         }
     }
 
+    @Override
+    public String toString() {
+        return this.num_1 + " " + OperatorManager.getOperatorAsString(this.operator) + " " + this.num_2;
+    }
 }

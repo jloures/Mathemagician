@@ -3,6 +3,9 @@ package com.androidapplication.capstone.mathemagician.helpers;
 /**
  * Created by joaoloures on 2017-10-16.
  */
-public static enum Operation {
+
+public enum Operator {
     ADDITION, DIVISION, SUBTRACTION, MULTIPLICATION
 }
+
+
