@@ -7,18 +7,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidapplication.capstone.mathemagician.helpers.Operator;
-import com.androidapplication.capstone.mathemagician.helpers.OperatorManager;
 import com.androidapplication.capstone.mathemagician.helpers.Question;
 import com.androidapplication.capstone.mathemagician.helpers.SessionResult;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GamePage extends AppCompatActivity {
@@ -106,7 +101,7 @@ public class GamePage extends AppCompatActivity {
         this.endTime = System.currentTimeMillis();
         int duration = (int) (this.endTime - this.startTime) / 1000;
 
-        Intent highScorePageIntent = new Intent(this, HighScorePage.class);
+        Intent highScorePageIntent = new Intent(this, HighScoresPage.class);
         highScorePageIntent.putExtra("results", new SessionResult(duration, this.numMistakes).toString());
         startActivity(highScorePageIntent);
     }

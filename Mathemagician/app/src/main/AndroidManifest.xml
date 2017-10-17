@@ -23,7 +23,7 @@
             android:label="@string/title_activity_game_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HighScorePage"
+            android:name=".HighScoresPage"
             android:label="@string/title_activity_high_score_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
