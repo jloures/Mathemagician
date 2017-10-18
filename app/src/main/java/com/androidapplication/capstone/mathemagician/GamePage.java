@@ -103,10 +103,6 @@ public class GamePage extends AppCompatActivity {
         this.endTime = System.currentTimeMillis();
         int duration = (int) (this.endTime - this.startTime) / 1000;
 
-        SharedPreferences.Editor editor = getSharedPreferences("high_scores", MODE_PRIVATE).edit();
-        //editor.putString();
-        editor.apply();
-
         Intent highScorePageIntent = new Intent(this, HighScoresPage.class);
         highScorePageIntent.putExtra("results", new SessionResult(duration, this.numMistakes).toString());
         startActivity(highScorePageIntent);

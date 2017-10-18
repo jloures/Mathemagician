@@ -30,29 +30,19 @@ public class HighScoresPage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferences prefs = getSharedPreferences("high_scores", MODE_PRIVATE);
-        String allResultsRecorded = null;
-        if (allResultsRecorded == null) {
-            //this should throw an exception
-            return;
-        }
+        String results = getIntent().getStringExtra("results");
+        TextView sessionResultsTextView = (TextView) findViewById(R.id.session_results_text);
+        sessionResultsTextView.setText(results);
 
+        Handler mHandler = new Handler();
+        mHandler.postDelayed(new Runnable() {
 
-        final Button goToMainPageButton = (Button) findViewById(R.id.main_page_button);
-        goToMainPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void run() {
                 goToMainPage();
             }
-        });
 
-        String[] allResults = {allResultsRecorded};
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.high_score_list_layout, R.id.result_text_view, allResults);
-
-        ListView listView = (ListView) findViewById(R.id.high_scores_list_view);
-        listView.setAdapter(adapter);
+        }, 3000L);
 
     }
 

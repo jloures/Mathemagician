@@ -20,9 +20,4 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this, GamePage.class);
         startActivity(intent);
     }
-
-    public void goToHighScorePage(View view) {
-        Intent intent = new Intent(this, HighScoresPage.class);
-        startActivity(intent);
-    }
 }
